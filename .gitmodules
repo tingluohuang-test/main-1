@@ -1,0 +1,6 @@
+[submodule "templates.vs.com.zh-cn"]
+	path = templates.vs.com.zh-cn
+	url = https://github.com/Microsoft/templates.vs.com.zh-cn.git
+[submodule "templates.vs.com.zh-tw"]
+	path = templates.vs.com.zh-tw
+	url = ../../Microsoft/templates.vs.com.zh-tw
