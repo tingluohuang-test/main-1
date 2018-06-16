@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {
+      "url": "https://vstsagentpackage.azureedge.net/agent/2.134.2/vsts-agent-win-x64-2.134.2.zip",
+      "name": "vsts-agent-win-x64-2.134.2.zip"
+    },
+    {
+      "url": "https://vstsagentpackage.azureedge.net/agent/2.134.2/vsts-agent-osx-x64-2.134.2.tar.gz",
+      "name": "vsts-agent-osx-x64-2.134.2.tar.gz"
+    },
+    {
+      "url": "https://vstsagentpackage.azureedge.net/agent/2.134.2/vsts-agent-linux-x64-2.134.2.tar.gz",
+      "name": "vsts-agent-linux-x64-2.134.2.tar.gz"
+    }
+  ]
+}
