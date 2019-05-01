@@ -11,7 +11,7 @@ workflow:
       if: succeeded()
       with:
         entryPoint: /bin/bash
-        args: printenv|sort
+        args: printenv
       env:
         foo: bar
     - uses: actions/npm@master
