@@ -1,7 +1,7 @@
 workflow:
   build:
     actions:
-    - run: set
+    - run: printenv
       name: printenv_name
       id: printenv_id
       if: succeeded()
