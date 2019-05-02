@@ -21,5 +21,5 @@ workflow:
     - uses: actions/aws/cli@master
       id: cli_id
       with:
-        args: --version
+        args: --output text help
     
