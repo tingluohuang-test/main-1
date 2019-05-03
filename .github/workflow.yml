@@ -14,7 +14,7 @@ workflow:
         args: -c printenv
       env:
         foo: bar
-    - uses: actions/npm@master
+    - uses: TingluoHuang/npm@master
       name: npm_version
       with:
         args: version
