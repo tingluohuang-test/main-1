@@ -1,10 +1,13 @@
 workflow:
   build:
+    strategy:
+      matrix:
+        platform: [ 'linux', 'windows']
     runs-on:
       pool: default
 
     actions:
-    - run: echo
+    - run: xxxxx
       name: printenv_name
       id: printenv_id
       if: succeeded()
