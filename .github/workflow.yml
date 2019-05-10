@@ -1,5 +1,8 @@
 workflow:
   build:
+    runs-on:
+      pool: default
+
     actions:
     - run: echo
       name: printenv_name
