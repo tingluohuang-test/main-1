@@ -29,4 +29,7 @@ workflow:
       id: cli_id
       with:
         args: --output text --color off help
+    - uses: bryanmacfarlane/node-config@master
+      with:
+        version: 8
     
