@@ -1,6 +1,8 @@
 workflow:
   build:
     strategy:
+      fail-fast: false
+      parallel: 2
       matrix:
         platform: [ 'linux', 'windows']
     runs-on:
