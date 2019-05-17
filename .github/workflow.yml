@@ -2,9 +2,9 @@ workflow:
   build:
     strategy:
       # fail-fast: false
-      # parallel: 2
-      matrix:
-        platform: [ 'linux', 'windows', 'osx' ]
+      parallel: 2
+      # matrix:
+      #   platform: [ 'linux', 'windows', 'osx' ]
     runs-on:
       pool: default
 
