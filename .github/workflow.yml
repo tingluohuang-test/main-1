@@ -9,12 +9,12 @@ workflow:
       pool: default
 
     actions:
-    - run: ${{ strategy.parallel }}
+    - run: set
       name: printenv_name
       id: printenv_id
       if: succeeded()
       env:
-        foo: bar
+        foo: ${{ strategy.parallel }}
       working-directory: c:\
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
