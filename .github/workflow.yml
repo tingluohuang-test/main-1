@@ -9,7 +9,7 @@ workflow:
       pool: default
 
     actions:
-    - run: echo ${{ strategy.parallel }}
+    - run: ${{ strategy.parallel }}
       name: printenv_name
       id: printenv_id
       if: succeeded()
