@@ -14,7 +14,7 @@ workflow:
       id: printenv_id
       if: succeeded()
       env:
-        foo: '${{ strategy.max-parallel }}'
+        foo: ${{ strategy['max-parallel'] }}
       working-directory: c:\
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
