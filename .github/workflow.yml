@@ -1,8 +1,8 @@
 workflow:
   build:
-    strategy:
-      fail-fast: false
-      parallel: 5
+    #strategy:
+      #fail-fast: false
+      #parallel: 5
       # matrix:
       #   platform: [ 'linux', 'windows', 'osx' ]
     runs-on:
@@ -13,8 +13,8 @@ workflow:
       name: printenv_name
       id: printenv_id
       if: succeeded()
-      env:
-        foo: ${{ strategy['max-parallel'] }}
+      #env:
+      #  foo: ${{ strategy['max-parallel'] }}
       working-directory: c:\
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
