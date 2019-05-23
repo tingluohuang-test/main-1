@@ -1,10 +1,12 @@
 workflow:
   build:
-    #strategy:
-      #fail-fast: false
-      #parallel: 5
+    strategy:
+      parallel: 3
+      
+      # fail-fast: false
       # matrix:
       #   platform: [ 'linux', 'windows', 'osx' ]
+
     runs-on:
       pool: default
 
@@ -13,29 +15,32 @@ workflow:
       name: printenv_name
       id: printenv_id
       if: succeeded()
-      #env:
-      #  foo: ${{ strategy['max-parallel'] }}
-      working-directory: c:\
-    - uses: 'docker://ubuntu:16.04'
-      if: succeeded()
-      with:
-        entryPoint: /bin/bash
-        args: -c printenv
       env:
-        foo: bar
-    - uses: TingluoHuang/npm@master
-      name: npm_version
-      with:
-        args: version
-    - uses: ./npm
-      name: npm_version_local
-      with:
-        args: version
-    - uses: actions/aws/cli@master
-      id: cli_id
-      with:
-        args: --output text --color off help
-    - uses: bryanmacfarlane/node-config@master
-      with:
-        version: 8
+       Job_Position: ${{ strategy['job-index'] }}
+      working-directory: c:\
+
+    # - uses: bryanmacfarlane/node-config@master
+    #   with:
+    #     version: 8
+
+    # - uses: 'docker://ubuntu:16.04'
+    #   if: succeeded()
+    #   with:
+    #     entryPoint: /bin/bash
+    #     args: -c printenv
+    #   env:
+    #     foo: bar
+    # - uses: TingluoHuang/npm@master
+    #   name: npm_version
+    #   with:
+    #     args: version
+    # - uses: ./npm
+    #   name: npm_version_local
+    #   with:
+    #     args: version
+    # - uses: actions/aws/cli@master
+    #   id: cli_id
+    #   with:
+    #     args: --output text --color off help
+    
     
