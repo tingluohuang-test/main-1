@@ -11,11 +11,11 @@ workflow:
       pool: default
 
     actions:
-    - checkout: true
+    - checkout: false
       
-    - checkout: actions/npm@master
+    # - checkout: actions/npm@master
 
-    - checkout: TingluoHuang/main@v3
+    # - checkout: TingluoHuang/main@v3
 
     - run: dir
     # - run: ${{ matrix.command }}
