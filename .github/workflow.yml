@@ -1,22 +1,22 @@
 workflow:
   build:
     strategy:
-      parallel: 5
+      # parallel: 3
       
       # fail-fast: false
-      # matrix:
-      #   command: [ 'ping 127.0.0.1 -n 30', 'dir', 'not_a_command']
+      matrix:
+        command: [ 'ping 127.0.0.1 -n 30', 'not_a_command']
 
     runs-on:
       pool: default
 
     actions:  
-    # - run: ${{ matrix.command }}
+    - run: ${{ matrix.command }}
 
-    - run: set
-      env:
-       Job_Position: ${{ strategy['job-index'] }}
-       Job_Parallel: ${{ parallel }}
+    # - run: set
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+    #    Job_Parallel: ${{ parallel }}
 
     # - run: set Job_Position
     #   name: printenv_name
