@@ -5,7 +5,7 @@ workflow:
       
       # fail-fast: false
       matrix:
-        nodeVersion: [ '6', '8', '100' ]
+        location: [ 'C:\', 'D:\', 'C:\Windows' ]
 
     runs-on:
       pool: default
@@ -18,10 +18,13 @@ workflow:
     #   env:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
+   
+    - run: dir
+      working-directory: ${{ strategy.matrix.location }}
 
-    - uses: bryanmacfarlane/node-config@master
-      with:
-        version: ${{ strategy.matrix.nodeVersion }}
+    # - uses: bryanmacfarlane/node-config@master
+    #   with:
+    #     version: ${{ strategy.matrix.nodeVersion }}
 
     # - uses: 'docker://ubuntu:16.04'
     #   if: succeeded()
