@@ -10,7 +10,13 @@ workflow:
     runs-on:
       pool: default
 
-    actions:
+    actions:  
+    - run: ${{ matrix.command }}
+
+    # - run: set Job_Position
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+
     # - run: set Job_Position
     #   name: printenv_name
     #   id: printenv_id
@@ -18,9 +24,7 @@ workflow:
     #   env:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
-   
-    - run: ${{ matrix.command }}
-
+    
     # - uses: bryanmacfarlane/node-config@master
     #   with:
     #     version: ${{ strategy.matrix.nodeVersion }}
