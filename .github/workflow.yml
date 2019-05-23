@@ -3,7 +3,7 @@ workflow:
     strategy:
       # parallel: 5
       
-      fail-fast: false
+      # fail-fast: false
       matrix:
         command: [ 'ping 127.0.0.1 -n 10', 'dir', 'not_a_command', 'something_else' ]
 
