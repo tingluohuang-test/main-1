@@ -10,13 +10,20 @@ workflow:
     runs-on:
       pool: default
 
-    actions:  
-    # - run: ${{ matrix.command }}
+    actions:
+    - checkout: true
+      
+    - checkout: actions/npm@master
 
-    - run: set
-      env:
-       Job_Position: ${{ strategy['job-index'] }}
-       Job_Parallelism: ${{ parallel }}
+    - checkout: TingluoHuang/main@v3
+
+    - run: dir
+    # - run: ${{ matrix.command }}
+    
+    # - run: set
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+    #    Job_Parallelism: ${{ parallel }}
 
     # - run: set Job_Position
     #   name: printenv_name
