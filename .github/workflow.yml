@@ -19,7 +19,7 @@ workflow:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
    
-    - run: ${{ strategy.matrix.command }}
+    - run: ${{ matrix.command }}
 
     # - uses: bryanmacfarlane/node-config@master
     #   with:
