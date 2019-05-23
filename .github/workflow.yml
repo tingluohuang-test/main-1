@@ -1,27 +1,27 @@
 workflow:
   build:
     strategy:
-      parallel: 5
+      # parallel: 5
       
       # fail-fast: false
-      # matrix:
-      #   platform: [ 'linux', 'windows', 'osx' ]
+      matrix:
+        nodeVersion: [ '6', '8', '100' ]
 
     runs-on:
       pool: default
 
     actions:
-    - run: set Job_Position
-      name: printenv_name
-      id: printenv_id
-      if: succeeded()
-      env:
-       Job_Position: ${{ strategy['job-index'] }}
-      working-directory: c:\
+    # - run: set Job_Position
+    #   name: printenv_name
+    #   id: printenv_id
+    #   if: succeeded()
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+    #   working-directory: c:\
 
-    # - uses: bryanmacfarlane/node-config@master
-    #   with:
-    #     version: 8
+    - uses: bryanmacfarlane/node-config@master
+      with:
+        version: ${{ strategy.matrix.nodeVersion }}
 
     # - uses: 'docker://ubuntu:16.04'
     #   if: succeeded()
