@@ -1,6 +1,6 @@
 workflow:
   build:
-    strategy:
+    # strategy:
       # parallel: 3
       
       # fail-fast: false
