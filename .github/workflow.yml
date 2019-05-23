@@ -1,7 +1,7 @@
 workflow:
   build:
     strategy:
-      parallel: 3
+      parallel: 5
       
       # fail-fast: false
       # matrix:
@@ -11,7 +11,7 @@ workflow:
       pool: default
 
     actions:
-    - run: set
+    - run: set Job_Position
       name: printenv_name
       id: printenv_id
       if: succeeded()
