@@ -1,7 +1,7 @@
 workflow:
   build:
     strategy:
-      parallel: 3
+      # parallel: 3
       
       # fail-fast: false
       # matrix:
