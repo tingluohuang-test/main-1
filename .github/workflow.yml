@@ -16,7 +16,7 @@ workflow:
     # - run: set
     #   env:
     #    Job_Position: ${{ strategy['job-index'] }}
-    #    Job_Parallel: ${{ parallel }}
+    #    Job_Parallelism: ${{ parallel }}
 
     # - run: set Job_Position
     #   name: printenv_name
