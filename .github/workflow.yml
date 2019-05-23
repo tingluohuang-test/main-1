@@ -5,7 +5,7 @@ workflow:
       
       # fail-fast: false
       matrix:
-        command: [ 'ping 127.0.0.1 -n 10', 'dir', 'not_a_command', 'dir', 'dir', 'dir' ]
+        command: [ 'ping 127.0.0.1 -n 10', 'dir', 'not_a_command']
 
     runs-on:
       pool: default
