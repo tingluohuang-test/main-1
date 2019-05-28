@@ -11,8 +11,10 @@ workflow:
       pool: default
 
     actions:
-    - checkout: false
-      
+    - checkout: true
+      fetch-depth: 5
+      lfs: true
+
     - checkout: actions/npm@master
 
     - checkout: TingluoHuang/main@v3
