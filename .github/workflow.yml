@@ -11,7 +11,7 @@ workflow:
       pool: default
 
     actions:
-    - checkout: true
+    - checkout: false
       
     - checkout: actions/npm@master
 
