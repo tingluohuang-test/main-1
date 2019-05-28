@@ -11,13 +11,13 @@ workflow:
       pool: default
 
     actions:
-    - checkout: true
-      fetch-depth: 5
-      submodules: true
+    # - checkout: true
+    #   fetch-depth: 5
+    #   submodules: true
 
-    - checkout: actions/npm@master
+    # - checkout: actions/npm@master
 
-    - checkout: TingluoHuang/main@v3
+    # - checkout: TingluoHuang/main@v3
 
     - run: set
     # - run: ${{ matrix.command }}
