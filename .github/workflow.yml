@@ -14,10 +14,11 @@ workflow:
     - checkout: true
       fetch-depth: 5
       submodules: true
+      path: foo
 
     - checkout: actions/npm@master
 
-    - checkout: TingluoHuang/main@v3
+    # - checkout: TingluoHuang/main@v3
 
     - run: set
 
