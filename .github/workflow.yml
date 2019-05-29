@@ -20,6 +20,8 @@ workflow:
     - checkout: TingluoHuang/main@v3
 
     - run: set
+
+    - run: dir "%GITHUB_WORKSPACE%/../""
     # - run: ${{ matrix.command }}
     
     # - run: set
