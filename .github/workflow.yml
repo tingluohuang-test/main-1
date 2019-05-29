@@ -14,6 +14,7 @@ workflow:
     - checkout: true
       fetch-depth: 5
       submodules: true
+      lfs: true
       path: foo
 
     - checkout: actions/npm@master
