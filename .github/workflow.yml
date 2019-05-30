@@ -41,7 +41,7 @@ workflow:
     
     - uses: bryanmacfarlane/node-config@master
       with:
-        version: ${{ strategy.matrix.nodeVersion }}
+        version: 10
 
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
