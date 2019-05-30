@@ -41,7 +41,7 @@ workflow:
     
     - uses: bryanmacfarlane/node-config@master
       with:
-        version: 10
+        version: ${{ matrix.nodeVersion }}
 
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
