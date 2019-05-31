@@ -12,12 +12,14 @@ workflow:
       pool: default
 
     actions:
-    - checkout: true
-      fetch-depth: 5
-      submodules: true
-      path: foo
+    - checkout: false
+    
+    # - checkout: true
+    #   fetch-depth: 5
+    #   submodules: true
+    #   path: foo
 
-    - checkout: actions/npm@master
+    # - checkout: actions/npm@master
 
     # - checkout: TingluoHuang/main@v3
 
