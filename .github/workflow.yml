@@ -1,4 +1,4 @@
-workflow:
+jobs:
   build:
     strategy:
       # parallel: 3
