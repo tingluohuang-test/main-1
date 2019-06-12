@@ -55,10 +55,10 @@ jobs:
       name: npm_version
       with:
         args: version
-    - uses: ./npm
-      name: npm_version_local
-      with:
-        args: version
+    # - uses: ./npm
+    #   name: npm_version_local
+    #   with:
+    #     args: version
     - uses: actions/aws/cli@master
       id: cli_id
       with:
