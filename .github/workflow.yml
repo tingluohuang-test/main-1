@@ -10,10 +10,10 @@ jobs:
     - checkout: actions/npm@master
       path: my_npm
 
-    - checkout: unicode-org/lfstest0@master
+    - checkout: swirek/lfstest@master
       lfs: true
 
-    - run: ls -R "$GITHUB_WORKSPACE/../"
+    - run: ls -R -s "$GITHUB_WORKSPACE/../"
 
     - uses: 'docker://ubuntu:16.04'
       with:
