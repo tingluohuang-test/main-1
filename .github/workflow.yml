@@ -6,9 +6,9 @@ jobs:
     - checkout: true
       fetch-depth: 5
       submodules: true
-      path: myrepo
 
     - checkout: actions/npm@master
+      path: my_npm
 
     - checkout: TingluoHuang/lfstest-manyfiles@master
       lfs: true
