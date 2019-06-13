@@ -13,7 +13,7 @@ jobs:
     - checkout: TingluoHuang/lfstest-manyfiles@master
       lfs: true
 
-    - run: ls -l "$GITHUB_WORKSPACE/../"
+    - run: ls -l -r "$GITHUB_WORKSPACE/../"
 
     - uses: 'docker://ubuntu:16.04'
       with:
