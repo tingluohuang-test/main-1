@@ -4,7 +4,7 @@ jobs:
 
     actions:
     - checkout: true
-      fetch-depth: 1
+      fetch-depth: 5
       submodules: true
       path: myrepo
 
