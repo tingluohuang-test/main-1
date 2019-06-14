@@ -25,7 +25,7 @@ jobs:
 
     - run: set
 
-    - run: ls "$GITHUB_WORKSPACE/../"
+    - run: dir "$GITHUB_WORKSPACE/../"
     # - run: ${{ matrix.command }}
     
     # - run: set
