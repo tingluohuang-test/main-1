@@ -21,7 +21,7 @@ jobs:
 
     - checkout: actions/npm@master
 
-    - checkout: TingluoHuang/main@v3
+    - checkout: TingluoHuang/main@master
 
     - run: set
 
