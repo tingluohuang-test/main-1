@@ -8,5 +8,6 @@ inputs:
     description: 'artifact download path'    
   source:
     description: 'artifact source'    
+    default: current
 runs:
   plugin: 'download'
