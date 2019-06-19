@@ -63,7 +63,7 @@ jobs:
       with:
         args: version
 
-    - uses: ./upload
+    - uses: ./update
       with:
         artifactName: testartifact
         path: npm
