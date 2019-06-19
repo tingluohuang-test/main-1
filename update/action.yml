@@ -1,0 +1,10 @@
+name: 'publish artifact'
+description: 'Publish pipeline artifacts'
+author: 'GitHub'
+inputs: 
+  artifactName:
+    description: 'artifact name'
+  path:
+    description: 'artifact path'    
+runs:
+  plugin: 'publish'
