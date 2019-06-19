@@ -6,5 +6,7 @@ inputs:
     description: 'artifact name'
   path:
     description: 'artifact download path'    
+  source:
+    description: 'artifact source'    
 runs:
   plugin: 'download'
