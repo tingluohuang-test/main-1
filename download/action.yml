@@ -1,0 +1,10 @@
+name: 'download artifact'
+description: 'Download pipeline artifacts'
+author: 'GitHub'
+inputs: 
+  artifact:
+    description: 'artifact name'
+  path:
+    description: 'artifact download path'    
+runs:
+  plugin: 'download'
