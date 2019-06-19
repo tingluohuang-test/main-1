@@ -14,14 +14,14 @@ jobs:
     actions:
     # - checkout: false
 
-    # - checkout: true
-    #   fetch-depth: 5
-    #   submodules: true
-    #   path: foo
+    - checkout: true
+      fetch-depth: 5
+      submodules: true
+      path: foo
 
-    # - checkout: actions/npm@master
+    - checkout: actions/npm@master
 
-    # - checkout: TingluoHuang/main@master
+    - checkout: TingluoHuang/main@master
 
     - run: set
 
