@@ -72,7 +72,7 @@ jobs:
       with:
         path: testdownload
     
-    - run: dir "$GITHUB_WORKSPACE/testdownload"
+    - run: dir "$GITHUB_WORKSPACE/testdownload/"
 
     - uses: actions/aws/cli@master
       id: cli_id
