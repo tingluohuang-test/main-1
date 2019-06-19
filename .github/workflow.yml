@@ -62,7 +62,18 @@ jobs:
       name: npm_version_local
       with:
         args: version
+
+    - uses: ./upload
+      with:
+        artifactName: testartifact
+        path: ${{ github.workspace }}
+
+    - uses: ./download
+      with:
+        path: testdownload
     
+    - run: dir "$GITHUB_WORKSPACE/testdownload"
+
     - uses: actions/aws/cli@master
       id: cli_id
       with:
