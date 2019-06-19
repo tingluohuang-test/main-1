@@ -66,7 +66,7 @@ jobs:
     - uses: ./upload
       with:
         artifactName: testartifact
-        path: ${{ github.workspace }}
+        path: npm
 
     - uses: ./download
       with:
