@@ -57,7 +57,7 @@ jobs:
       if: succeeded()
       with:
         entryPoint: /bin/bash
-        args: cat /github/workflow/event.json
+        args: -c "cat /github/workflow/event.json"
       env:
         foo: bar
 
