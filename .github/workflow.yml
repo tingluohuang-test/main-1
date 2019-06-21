@@ -8,7 +8,8 @@ jobs:
         nodeVersion: [ '10' ]
         # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
 
-    runs-on: ubuntu-16.04
+    runs-on:
+      pool: default
 
     actions:
     # - checkout: false
@@ -24,7 +25,7 @@ jobs:
 
     - run: set
 
-    - run: dir "$GITHUB_WORKSPACE/../"
+    - run: dir "%GITHUB_WORKSPACE%/../"
     # - run: ${{ matrix.command }}
     
     # - run: set
@@ -70,16 +71,16 @@ jobs:
       with:
         args: version
 
-    # - uses: ./update
-    #   with:
-    #     artifactName: testartifact
-    #     path: npm
+    - uses: ./update
+      with:
+        artifactName: testartifact
+        path: npm
 
-    # - uses: ./download
-    #   with:
-    #     path: testdownload
+    - uses: ./download
+      with:
+        path: testdownload
     
-    # - run: dir "%GITHUB_WORKSPACE%/testdownload/"
+    - run: dir "%GITHUB_WORKSPACE%/testdownload/"
 
     - uses: actions/aws/cli@master
       id: cli_id
