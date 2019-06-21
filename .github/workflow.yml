@@ -53,6 +53,14 @@ jobs:
       env:
         foo: bar
 
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: cat /github/workflow/event.json
+      env:
+        foo: bar
+
     - uses: TingluoHuang/npm@master
       name: npm_version
       with:
@@ -63,16 +71,16 @@ jobs:
       with:
         args: version
 
-    - uses: ./update
-      with:
-        artifactName: testartifact
-        path: npm
+    # - uses: ./update
+    #   with:
+    #     artifactName: testartifact
+    #     path: npm
 
-    - uses: ./download
-      with:
-        path: testdownload
+    # - uses: ./download
+    #   with:
+    #     path: testdownload
     
-    - run: dir "%GITHUB_WORKSPACE%/testdownload/"
+    # - run: dir "%GITHUB_WORKSPACE%/testdownload/"
 
     - uses: actions/aws/cli@master
       id: cli_id
