@@ -8,8 +8,7 @@ jobs:
         nodeVersion: [ '10' ]
         # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
 
-    runs-on:
-      pool: default
+    runs-on: ubuntu-16.04
 
     actions:
     # - checkout: false
