@@ -71,12 +71,12 @@ jobs:
       with:
         args: version
 
-    - uses: ./update
+    - uses: actions/upload-artifact@master
       with:
         artifactName: testartifact
         path: npm
 
-    - uses: ./download
+    - uses: actions/download-artifact@master
       with:
         path: testdownload
     
