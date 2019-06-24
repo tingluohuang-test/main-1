@@ -78,7 +78,7 @@ jobs:
 
     - uses: actions/download-artifact@master
       with:
-        artifactName: testartifact
+        artifact: testartifact
         path: testdownload
     
     - run: dir "%GITHUB_WORKSPACE%/testdownload/"
