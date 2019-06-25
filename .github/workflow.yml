@@ -8,8 +8,8 @@ jobs:
         nodeVersion: [ '10' ]
         # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
 
-    runs-on: windows-2019
-      # pool: default
+    runs-on:
+      pool: default
 
     actions:
     # - checkout: false
@@ -27,7 +27,7 @@ jobs:
 
     - run: set
 
-    - run: dir "$GITHUB_WORKSPACE/../"
+    - run: dir "%GITHUB_WORKSPACE%/../"
     # - run: ${{ matrix.command }}
     
     # - run: set
@@ -83,7 +83,7 @@ jobs:
         artifact: testartifact
         path: testdownload
     
-    - run: dir "$GITHUB_WORKSPACE/testdownload/"
+    - run: dir "%GITHUB_WORKSPACE%/testdownload/"
 
     - uses: actions/aws/cli@master
       id: cli_id
