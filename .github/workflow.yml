@@ -46,6 +46,9 @@ jobs:
     # - uses: bryanmacfarlane/node-config@master
     #   with:
     #     version: ${{ matrix.nodeVersion }}
+    - uses: 'actions/container-template@master'
+      with:
+        myInput: "github"
 
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
