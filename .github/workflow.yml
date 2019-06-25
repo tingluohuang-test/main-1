@@ -8,24 +8,26 @@ jobs:
         nodeVersion: [ '10' ]
         # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
 
-    runs-on:
-      pool: default
+    runs-on: ubunut-16.04
+      # pool: default
 
     actions:
     # - checkout: false
 
-    - checkout: true
-      fetch-depth: 5
-      submodules: true
-      path: foo
+    - run: docker system df -v
 
-    - checkout: actions/npm@master
+    # - checkout: true
+    #   fetch-depth: 5
+    #   submodules: true
+    #   path: foo
 
-    - checkout: TingluoHuang/main@master
+    # - checkout: actions/npm@master
 
-    - run: set
+    # - checkout: TingluoHuang/main@master
 
-    - run: dir "%GITHUB_WORKSPACE%/../"
+    # - run: set
+
+    # - run: dir "%GITHUB_WORKSPACE%/../"
     # - run: ${{ matrix.command }}
     
     # - run: set
@@ -41,51 +43,51 @@ jobs:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
     
-    - uses: bryanmacfarlane/node-config@master
-      with:
-        version: ${{ matrix.nodeVersion }}
+    # - uses: bryanmacfarlane/node-config@master
+    #   with:
+    #     version: ${{ matrix.nodeVersion }}
 
-    - uses: 'docker://ubuntu:16.04'
-      if: succeeded()
-      with:
-        entryPoint: /bin/bash
-        args: -c printenv
-      env:
-        foo: bar
+    # - uses: 'docker://ubuntu:16.04'
+    #   if: succeeded()
+    #   with:
+    #     entryPoint: /bin/bash
+    #     args: -c printenv
+    #   env:
+    #     foo: bar
 
-    - uses: 'docker://ubuntu:16.04'
-      if: succeeded()
-      with:
-        entryPoint: /bin/bash
-        args: -c "cat /github/workflow/event.json"
-      env:
-        foo: bar
+    # - uses: 'docker://ubuntu:16.04'
+    #   if: succeeded()
+    #   with:
+    #     entryPoint: /bin/bash
+    #     args: -c "cat /github/workflow/event.json"
+    #   env:
+    #     foo: bar
 
-    - uses: TingluoHuang/npm@master
-      name: npm_version
-      with:
-        args: version
+    # - uses: TingluoHuang/npm@master
+    #   name: npm_version
+    #   with:
+    #     args: version
     
-    - uses: ./npm
-      name: npm_version_local
-      with:
-        args: version
+    # - uses: ./npm
+    #   name: npm_version_local
+    #   with:
+    #     args: version
 
-    - uses: actions/upload-artifact@master
-      with:
-        artifactName: testartifact
-        path: npm
+    # - uses: actions/upload-artifact@master
+    #   with:
+    #     artifactName: testartifact
+    #     path: npm
 
-    - uses: actions/download-artifact@master
-      with:
-        artifact: testartifact
-        path: testdownload
+    # - uses: actions/download-artifact@master
+    #   with:
+    #     artifact: testartifact
+    #     path: testdownload
     
-    - run: dir "%GITHUB_WORKSPACE%/testdownload/"
+    # - run: dir "%GITHUB_WORKSPACE%/testdownload/"
 
-    - uses: actions/aws/cli@master
-      id: cli_id
-      with:
-        args: --output text --color off help
+    # - uses: actions/aws/cli@master
+    #   id: cli_id
+    #   with:
+    #     args: --output text --color off help
     
     
