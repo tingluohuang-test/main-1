@@ -65,9 +65,9 @@ jobs:
         printenv | sort
         which node
         which npm
+        ping 127.0.0.1
         node --version
         npm version
-
     # - uses: 'docker://ubuntu:16.04'
     #   if: succeeded()
     #   with:
