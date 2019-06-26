@@ -27,6 +27,9 @@ jobs:
 
     - run: set
 
+    - run: |
+        sudo apt install nodejs
+
     - run: dir "$GITHUB_WORKSPACE/../"
     # - run: ${{ matrix.command }}
     
