@@ -50,6 +50,13 @@ jobs:
       with:
         myInput: "github"
     
+    - run: |
+        printenv | sort
+        which node
+        which npm
+        node --version
+        npm version
+
     - uses: 'actions/setup-node@master'
       with:
         version: '10'
