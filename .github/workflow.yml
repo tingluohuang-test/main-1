@@ -55,7 +55,7 @@ jobs:
         version: '10'
     
     - run: |
-        node version
+        node --version
         npm version
 
     - uses: 'docker://ubuntu:16.04'
