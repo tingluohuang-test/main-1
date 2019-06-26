@@ -52,7 +52,7 @@ jobs:
     
     - uses: 'actions/setup-node@master'
       with:
-        version: '10'
+        version: '8'
     
     - run: |
         printenv | sort
