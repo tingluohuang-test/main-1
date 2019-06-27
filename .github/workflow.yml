@@ -67,47 +67,48 @@ jobs:
         which npm
         node --version
         npm version
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: succeeded()
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c printenv
-    #   env:
-    #     foo: bar
 
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: succeeded()
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c "cat /github/workflow/event.json"
-    #   env:
-    #     foo: bar
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: -c printenv
+      env:
+        foo: bar
 
-    # - uses: TingluoHuang/npm@master
-    #   name: npm_version
-    #   with:
-    #     args: version
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: -c "cat /github/workflow/event.json"
+      env:
+        foo: bar
+
+    - uses: TingluoHuang/npm@master
+      name: npm_version
+      with:
+        args: version
     
-    # - uses: ./npm
-    #   name: npm_version_local
-    #   with:
-    #     args: version
+    - uses: ./npm
+      name: npm_version_local
+      with:
+        args: version
 
-    # - uses: actions/upload-artifact@master
-    #   with:
-    #     artifactName: testartifact
-    #     path: npm
+    - uses: actions/upload-artifact@master
+      with:
+        artifactName: testartifact
+        path: npm
 
-    # - uses: actions/download-artifact@master
-    #   with:
-    #     artifact: testartifact
-    #     path: testdownload
+    - uses: actions/download-artifact@master
+      with:
+        artifact: testartifact
+        path: testdownload
     
-    # - run: dir "$GITHUB_WORKSPACE/testdownload/"
+    - run: dir "$GITHUB_WORKSPACE/testdownload/"
 
-    # - uses: actions/aws/cli@master
-    #   id: cli_id
-    #   with:
-    #     args: --output text --color off help
+    - uses: actions/aws/cli@master
+      id: cli_id
+      with:
+        args: --output text --color off help
     
     
