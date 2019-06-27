@@ -51,22 +51,16 @@ jobs:
         myInput: "github"
     
     - run: |
-        printenv | sort
-        which node
-        which npm
         node --version
-        npm version
+        npm --version
 
     - uses: 'actions/setup-node@master'
       with:
         version: '10'
     
     - run: |
-        printenv | sort
-        which node
-        which npm
         node --version
-        npm version
+        npm --version
 
     - uses: 'docker://ubuntu:16.04'
       if: succeeded()
@@ -104,7 +98,7 @@ jobs:
         artifact: testartifact
         path: testdownload
     
-    - run: dir "$GITHUB_WORKSPACE/testdownload/"
+    - run: dir "%GITHUB_WORKSPACE%/testdownload/"
 
     - uses: actions/aws/cli@master
       id: cli_id
