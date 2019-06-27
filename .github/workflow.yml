@@ -10,7 +10,7 @@ jobs:
 
     runs-on:
       pool: default
-
+    container: 'node:lts-slim'
     actions:
     # - checkout: false
 
