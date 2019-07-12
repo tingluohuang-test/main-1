@@ -1,144 +1,146 @@
-on: push
- 
 jobs:
   build:
-    strategy: 
+    strategy:
+      # parallel: 3
+      
+      # fail-fast: false
       matrix:
-        node: [8.x, 10.x]
-        os: [ubuntu-16.04]
-    runs-on: ${{matrix.os}}
+        nodeVersion: [ '10' ]
+        # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
+
+    runs-on:
+      pool: default
+    # container: 'node:lts-slim'
     actions:
-    - uses: actions/setup-node@master
+    # - checkout: false
+
+    # - run: docker system df -v
+
+    - checkout: true
+      fetch-depth: 5
+      submodules: true
+      path: foo
+
+    - checkout: actions/npm@master
+
+    - checkout: TingluoHuang/main@master
+
+    - run: set
+
+    - run: dir "$GITHUB_WORKSPACE/../"
+    # - run: ${{ matrix.command }}
+    
+    # - run: set
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+    #    Job_Parallelism: ${{ parallel }}
+
+    # - run: set Job_Position
+    #   name: printenv_name
+    #   id: printenv_id
+    #   if: succeeded()
+    #   env:
+    #    Job_Position: ${{ strategy['job-index'] }}
+    #   working-directory: c:\
+    
+    # - uses: bryanmacfarlane/node-config@master
+    #   with:
+    #     version: ${{ matrix.nodeVersion }}
+    - uses: 'actions/container-template@master'
       with:
-        version: ${{matrix.node}}
-    - name: npm install
-      run: | 
-        which node && node --version
-        which npm && npm --version
-        npm install
-        sudo npm install gulp -g
+        myInput: "github"
+    
     - run: |
-        npm run build
-        npm test
+        node --version
+        npm --version
+
+    - uses: 'actions/setup-node@master'
+      with:
+        version: '10'
+    
+    - run: |
+        node --version
+        npm --version
+
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: -c printenv
+      env:
+        foo: bar
+
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: -c "cat /github/workflow/event.json"
+      env:
+        foo: bar
+
+    - uses: TingluoHuang/npm@master
+      name: npm_version
+      with:
+        args: version
+    
+    - uses: ./npm
+      name: npm_version_local
+      with:
+        args: version
+
     - uses: actions/upload-artifact@master
       with:
-        artifactName: tsc-${{matrix.node}}
-        path: built
-    - name: Publish to GPR
-      if: startsWith('', 'refs/heads/release*')
-      run: |
-        cd ./built/local && ls -la
-        npm publish
-        env:
-        NPM_REGISTRY_URL: "npm.pkg.github.com"
-        NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+        artifactName: testartifact
+        path: npm
+
+    - uses: actions/download-artifact@master
+      with:
+        artifact: testartifact
+        path: testdownload
+    
+    - run: dir "$GITHUB_WORKSPACE/testdownload/"
+
+    - uses: actions/aws/cli@master
+      id: cli_id
+      with:
+        args: --output text --color off help
+    
+    
 
 
+# on: push
+ 
 # jobs:
 #   build:
-#     strategy:
-#       # parallel: 3
-      
-#       # fail-fast: false
+#     strategy: 
 #       matrix:
-#         nodeVersion: [ '10' ]
-#         # command: [ 'ping 127.0.0.1 -n 60', 'not_a_command']
-
-#     runs-on:
-#       pool: default
-#     container: 'node:lts-slim'
+#         node: [8.x, 10.x]
+#         os: [ubuntu-16.04]
+#     runs-on: ${{matrix.os}}
 #     actions:
-#     # - checkout: false
-
-#     # - run: docker system df -v
-
-#     - checkout: true
-#       fetch-depth: 5
-#       submodules: true
-#       path: foo
-
-#     - checkout: actions/npm@master
-
-#     - checkout: TingluoHuang/main@master
-
-#     - run: set
-
-#     - run: dir "$GITHUB_WORKSPACE/../"
-#     # - run: ${{ matrix.command }}
-    
-#     # - run: set
-#     #   env:
-#     #    Job_Position: ${{ strategy['job-index'] }}
-#     #    Job_Parallelism: ${{ parallel }}
-
-#     # - run: set Job_Position
-#     #   name: printenv_name
-#     #   id: printenv_id
-#     #   if: succeeded()
-#     #   env:
-#     #    Job_Position: ${{ strategy['job-index'] }}
-#     #   working-directory: c:\
-    
-#     # - uses: bryanmacfarlane/node-config@master
-#     #   with:
-#     #     version: ${{ matrix.nodeVersion }}
-#     - uses: 'actions/container-template@master'
+#     - uses: actions/setup-node@master
 #       with:
-#         myInput: "github"
-    
+#         version: ${{matrix.node}}
+#     - name: npm install
+#       run: | 
+#         which node && node --version
+#         which npm && npm --version
+#         npm install
+#         sudo npm install gulp -g
 #     - run: |
-#         node --version
-#         npm --version
-
-#     - uses: 'actions/setup-node@master'
-#       with:
-#         version: '10'
-    
-#     - run: |
-#         node --version
-#         npm --version
-
-#     - uses: 'docker://ubuntu:16.04'
-#       if: succeeded()
-#       with:
-#         entryPoint: /bin/bash
-#         args: -c printenv
-#       env:
-#         foo: bar
-
-#     - uses: 'docker://ubuntu:16.04'
-#       if: succeeded()
-#       with:
-#         entryPoint: /bin/bash
-#         args: -c "cat /github/workflow/event.json"
-#       env:
-#         foo: bar
-
-#     - uses: TingluoHuang/npm@master
-#       name: npm_version
-#       with:
-#         args: version
-    
-#     - uses: ./npm
-#       name: npm_version_local
-#       with:
-#         args: version
-
+#         npm run build
+#         npm test
 #     - uses: actions/upload-artifact@master
 #       with:
-#         artifactName: testartifact
-#         path: npm
+#         artifactName: tsc-${{matrix.node}}
+#         path: built
+#     - name: Publish to GPR
+#       if: startsWith('', 'refs/heads/release*')
+#       run: |
+#         cd ./built/local && ls -la
+#         npm publish
+#         env:
+#         NPM_REGISTRY_URL: "npm.pkg.github.com"
+#         NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
-#     - uses: actions/download-artifact@master
-#       with:
-#         artifact: testartifact
-#         path: testdownload
-    
-#     - run: dir "$GITHUB_WORKSPACE/testdownload/"
 
-#     - uses: actions/aws/cli@master
-#       id: cli_id
-#       with:
-#         args: --output text --color off help
-    
-    
