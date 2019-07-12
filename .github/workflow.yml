@@ -51,9 +51,9 @@ jobs:
       with:
         myInput: "github"
     
-    - run: |
-        node --version
-        npm --version
+    # - run: |
+    #     node --version
+    #     npm --version
 
     - uses: 'actions/setup-node@master'
       with:
