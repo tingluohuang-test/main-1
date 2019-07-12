@@ -26,6 +26,7 @@ jobs:
     - checkout: TingluoHuang/main@master
 
     - run: set
+      name: "test name ${{ matrix.nodeVersion }}"
 
     - run: dir "$GITHUB_WORKSPACE/../"
     # - run: ${{ matrix.command }}
