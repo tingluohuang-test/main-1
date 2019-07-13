@@ -102,6 +102,16 @@ jobs:
     # - run: dir
     #   working-directory: testdownload
 
+    - run: dir
+      working-directory: npm
+
+
+    - run: dir
+      working-directory: ./npm
+
+    - run: dir
+      working-directory: ../
+
     - uses: actions/aws/cli@master
       id: cli_id
       with:
