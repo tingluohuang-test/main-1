@@ -89,18 +89,18 @@ jobs:
       with:
         args: version
 
-    - uses: actions/upload-artifact@master
-      with:
-        artifactName: testartifact
-        path: npm
+    # - uses: actions/upload-artifact@master
+    #   with:
+    #     artifactName: testartifact
+    #     path: npm
 
-    - uses: actions/download-artifact@master
-      with:
-        artifact: testartifact
-        path: testdownload
+    # - uses: actions/download-artifact@master
+    #   with:
+    #     artifact: testartifact
+    #     path: testdownload
     
-    - run: dir
-      working-directory: testdownload
+    # - run: dir
+    #   working-directory: testdownload
 
     - uses: actions/aws/cli@master
       id: cli_id
