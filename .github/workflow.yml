@@ -25,7 +25,7 @@ jobs:
 
     - checkout: TingluoHuang/main@master
 
-    - run: set
+    - run: printenv | sort
       # name: "test name ${{ matrix.nodeVersion }}"
 
     - run: dir "$GITHUB_WORKSPACE/../"
