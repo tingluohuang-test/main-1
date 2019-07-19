@@ -99,9 +99,10 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         artifact: testartifact
+        path: testdownload
     
     - run: dir
-      working-directory: testartifact
+      working-directory: testdownload
 
     - run: dir
       working-directory: npm
