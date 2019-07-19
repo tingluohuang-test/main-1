@@ -93,7 +93,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         artifactName: testartifact
-        path: npm/LICENSE
+        path: npm
         fc: true
 
     - uses: actions/download-artifact@master
