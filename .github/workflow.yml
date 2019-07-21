@@ -97,7 +97,7 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         artifact: testartifact
-        path: testdownload
+        path: "K:\Downloads\Edge.of.Tomorrow.2014.720p.BluRay.x264-SPARKS.mkv"
     
     - run: dir
       working-directory: testdownload
