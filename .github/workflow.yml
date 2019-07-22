@@ -84,10 +84,14 @@ jobs:
     #   with:
     #     args: version
     
-    # - uses: ./npm
-    #   name: npm_version_local
-    #   with:
-    #     args: version
+    - uses: ./npm
+      name: npm_version_local
+      with:
+        args: version
+
+    - uses: ./my-action
+      with:
+        beep: 5
 
     - uses: actions/upload-artifact@master
       with:
