@@ -16,15 +16,15 @@ jobs:
 
     # - run: docker system df -v
 
-    # - uses: actions/checkout@users/tihuang/test
-    #   with: 
-    #     fetch-depth: 5
-    #     submodules: true
-    #     path: foo
+    - uses: actions/checkout@users/tihuang/test
+      with: 
+        fetch-depth: 5
+        submodules: true
+        path: foo
 
-    # - uses: actions/checkout@users/tihuang/test
-    #   with: 
-    #     repository: actions/npm
+    - uses: actions/checkout@users/tihuang/test
+      with: 
+        repository: actions/npm
 
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
