@@ -25,6 +25,7 @@ jobs:
     - uses: actions/checkout@users/tihuang/test
       with: 
         repository: actions/npm
+        ref: master
 
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
