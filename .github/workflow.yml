@@ -89,7 +89,7 @@ jobs:
       with:
         args: version
 
-    - uses: ./my-action
+    - uses: Tingluohuang/main/my-action@master
       with:
         beep: 5
 
