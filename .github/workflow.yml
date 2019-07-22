@@ -91,7 +91,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         artifactName: testartifact
-        path: 'K:\The Big Bang Theory Season 3 Complete 720p\The.Big.Bang.Theory.S03E17.720p.HDTV.x264.mkv'
+        # path: 'K:\The Big Bang Theory Season 3 Complete 720p\The.Big.Bang.Theory.S03E17.720p.HDTV.x264.mkv'
         fc: true
 
     - uses: actions/download-artifact@master
