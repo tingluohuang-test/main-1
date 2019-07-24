@@ -16,13 +16,13 @@ jobs:
 
     # - run: docker system df -v
 
-    - uses: actions/checkout@users/tihuang/test
+    - uses: actions/checkout@master
       with: 
         fetch-depth: 5
         submodules: true
         path: foo
 
-    - uses: actions/checkout@users/tihuang/test
+    - uses: actions/checkout@master
       with: 
         repository: actions/npm
         ref: master
@@ -83,6 +83,9 @@ jobs:
     #   name: npm_version
     #   with:
     #     args: version
+    - uses: ./my-action
+      with:
+        beep: 5
     
     - uses: ./npm
       name: npm_version_local
