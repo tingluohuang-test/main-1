@@ -46,13 +46,13 @@ jobs:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
     
-    # - uses: 'actions/container-template@master'
-    #   with:
-    #     myInput: "github"
+    - uses: 'actions/container-template@master'
+      with:
+        myInput: "github"
     
-    # - run: |
-    #     node --version
-    #     npm --version
+    - run: |
+        node --version
+        npm --version
 
     - uses: 'actions/setup-node@master'
       with:
@@ -63,26 +63,27 @@ jobs:
         npm --version
       if: failure()
 
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: eq(github.ref, 'refs/heads/master')
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c printenv
-    #   env:
-    #     foo: bar
+    - uses: 'docker://ubuntu:16.04'
+      if: eq(github.ref, 'refs/heads/master')
+      with:
+        entryPoint: /bin/bash
+        args: -c printenv
+      env:
+        foo: bar
 
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: succeeded()
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c "cat /github/workflow/event.json"
-    #   env:
-    #     foo: bar
+    - uses: 'docker://ubuntu:16.04'
+      if: succeeded()
+      with:
+        entryPoint: /bin/bash
+        args: -c "cat /github/workflow/event.json"
+      env:
+        foo: bar
 
-    # - uses: TingluoHuang/npm@master
-    #   name: npm_version
-    #   with:
-    #     args: version
+    - uses: TingluoHuang/npm@master
+      name: npm_version
+      with:
+        args: version
+
     - uses: ./my-action
       with:
         beep: 5
