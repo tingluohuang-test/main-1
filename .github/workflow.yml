@@ -72,7 +72,7 @@ jobs:
         foo: bar
 
     - uses: 'docker://ubuntu:16.04'
-      if: succeeded()
+      if: success()
       with:
         entryPoint: /bin/bash
         args: -c "cat /github/workflow/event.json"
