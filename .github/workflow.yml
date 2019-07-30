@@ -27,6 +27,16 @@ jobs:
         repository: actions/npm
         ref: master
 
+    - uses: bbq-beets/shawnnapora-hello@master
+      with:
+        who-to-greet: 'Mundo'
+      id: hello
+
+    - run: |
+        echo "The time was $time" 
+      env:
+        time: ${{ actions.hello.outputs.time }}
+
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
 
