@@ -1,2 +1,15 @@
-steps:
-- checkout: self
+name: 'Hello world'
+description: 'Greet someone and record the time'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+  outputs:
+    time:
+      description: 'The time we did the greeting'
+  branding:
+    color: 'green'
+  runs:
+    using: 'node12'
+    main: 'lib/hello-world.js'
