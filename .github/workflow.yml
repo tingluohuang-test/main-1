@@ -35,7 +35,7 @@ jobs:
     - run: |
         echo "The time was $time" 
       env:
-        time: ${{ actions.hello.outputs.time }}
+        time: ${{ steps.hello.outputs.time }}
 
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
