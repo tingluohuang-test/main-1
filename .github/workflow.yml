@@ -27,16 +27,6 @@ jobs:
         repository: actions/npm
         ref: master
 
-    - uses: .
-      with:
-        who-to-greet: 'Mundo'
-      id: hello
-
-    - run: |
-        echo "The time was $time" 
-      env:
-        time: ${{ steps.hello.outputs.time }}
-
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
 
