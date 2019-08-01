@@ -30,7 +30,7 @@ jobs:
     - run: set
       # name: "test name ${{ matrix.nodeVersion }}"
 
-    - run: dir "$GITHUB_WORKSPACE/../"
+    #- run: dir "$GITHUB_WORKSPACE/../"
     # - run: ${{ matrix.command }}
     
     # - run: set
@@ -46,9 +46,9 @@ jobs:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
     
-    - uses: 'actions/container-template@master'
-      with:
-        myInput: "github"
+    # - uses: 'actions/container-template@master'
+    #   with:
+    #     myInput: "github"
     
     - run: |
         node --version
@@ -63,49 +63,49 @@ jobs:
         npm --version
       if: failure()
 
-    - uses: 'docker://ubuntu:16.04'
-      if: eq(github.ref, 'refs/heads/master')
-      with:
-        entryPoint: /bin/bash
-        args: -c printenv
-      env:
-        foo: bar
+    # - uses: 'docker://ubuntu:16.04'
+    #   if: eq(github.ref, 'refs/heads/master')
+    #   with:
+    #     entryPoint: /bin/bash
+    #     args: -c printenv
+    #   env:
+    #     foo: bar
 
-    - uses: 'docker://ubuntu:16.04'
-      if: success()
-      with:
-        entryPoint: /bin/bash
-        args: -c "cat /github/workflow/event.json"
-      env:
-        foo: bar
+    # - uses: 'docker://ubuntu:16.04'
+    #   if: success()
+    #   with:
+    #     entryPoint: /bin/bash
+    #     args: -c "cat /github/workflow/event.json"
+    #   env:
+    #     foo: bar
 
-    - uses: TingluoHuang/npm@master
-      name: npm_version
-      with:
-        args: version
+    # - uses: TingluoHuang/npm@master
+    #   name: npm_version
+    #   with:
+    #     args: version
 
-    - uses: ./my-action
-      with:
-        beep: 5
+    # - uses: ./my-action
+    #   with:
+    #     beep: 5
     
-    - uses: ./npm
-      name: npm_version_local
-      with:
-        args: version
+    # - uses: ./npm
+    #   name: npm_version_local
+    #   with:
+    #     args: version
 
-    - uses: Tingluohuang/main/my-action@master
-      with:
-        beep: 5
+    # - uses: Tingluohuang/main/my-action@master
+    #   with:
+    #     beep: 5
 
     - uses: actions/upload-artifact@master
       with:
-        artifactName: testartifact
+        name: testartifact
         path: ${{github.workspace}}
         fc: true
 
     - uses: actions/download-artifact@master
       with:
-        artifact: testartifact
+        name: testartifact
         path: testdownload
     
     - run: dir
