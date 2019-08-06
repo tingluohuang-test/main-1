@@ -27,7 +27,14 @@ jobs:
         repository: actions/npm
         ref: master
 
+    - run: |
+        echo ##[debug]something great
+        echo ##[set-env name=foo;]zzzz
+
     - run: set
+      env:
+        foo: bar
+
       # name: "test name ${{ matrix.nodeVersion }}"
 
     #- run: dir "$GITHUB_WORKSPACE/../"
@@ -86,7 +93,7 @@ jobs:
     #   with:
     #     args: version
 
-    - uses: ./my-action1
+    - uses: ./my-action
       with:
         beep: 5
     
