@@ -79,7 +79,7 @@ jobs:
     #   env:
     #     foo: bar
 
-    - uses: TingluoHuang/main@master
+    # - uses: TingluoHuang/main@master
 
     # - uses: TingluoHuang/npm@master
     #   name: npm_version
