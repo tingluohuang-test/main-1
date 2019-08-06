@@ -35,6 +35,8 @@ jobs:
       env:
         foo: bar
 
+    - run: set
+    
       # name: "test name ${{ matrix.nodeVersion }}"
 
     #- run: dir "$GITHUB_WORKSPACE/../"
