@@ -107,8 +107,8 @@ jobs:
         args: version
 
     - uses: ./my-action
-      with:
-        beep: 5
+      # with:
+      #   beep: 5
     
     - uses: ./npm
       name: npm_version_local
