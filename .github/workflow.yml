@@ -27,6 +27,12 @@ jobs:
         repository: actions/npm
         ref: master
 
+    - uses: actions/checkout@master
+      with: 
+        repository: actions/npm
+        ref: v2.0.0
+        path: testtag
+
     - run: |
         echo ##[debug]something great
         echo ##[set-env name=foo;]zzzz
@@ -55,13 +61,17 @@ jobs:
     #    Job_Position: ${{ strategy['job-index'] }}
     #   working-directory: c:\
     
-    # - uses: 'actions/container-template@master'
-    #   with:
-    #     myInput: "github"
+    - uses: 'actions/container-template@master'
+      with:
+        myInput: "github"
     
     - run: |
         node --version
         npm --version
+    
+    - uses: 'actions/container-template@master'
+      with:
+        myInput: "github"
 
     - uses: 'actions/setup-node@master'
       with:
@@ -72,41 +82,41 @@ jobs:
         npm --version
       if: failure()
 
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: eq(github.ref, 'refs/heads/master')
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c printenv
-    #   env:
-    #     foo: bar
+    - uses: 'docker://ubuntu:16.04'
+      if: eq(github.ref, 'refs/heads/master')
+      with:
+        entryPoint: /bin/bash
+        args: -c printenv
+      env:
+        foo: bar
 
-    # - uses: 'docker://ubuntu:16.04'
-    #   if: success()
-    #   with:
-    #     entryPoint: /bin/bash
-    #     args: -c "cat /github/workflow/event.json"
-    #   env:
-    #     foo: bar
+    - uses: 'docker://ubuntu:16.04'
+      if: success()
+      with:
+        entryPoint: /bin/bash
+        args: -c "cat /github/workflow/event.json"
+      env:
+        foo: bar
 
     # - uses: TingluoHuang/main@master
 
-    # - uses: TingluoHuang/npm@master
-    #   name: npm_version
-    #   with:
-    #     args: version
+    - uses: TingluoHuang/npm@master
+      name: npm_version
+      with:
+        args: version
 
-    # - uses: ./my-action
-    #   with:
-    #     beep: 5
+    - uses: ./my-action
+      with:
+        beep: 5
     
-    # - uses: ./npm
-    #   name: npm_version_local
-    #   with:
-    #     args: version
+    - uses: ./npm
+      name: npm_version_local
+      with:
+        args: version
 
-    # - uses: Tingluohuang/main/my-action@master
-    #   with:
-    #     beep: 5
+    - uses: Tingluohuang/main/my-action@master
+      with:
+        beep: 5
 
     - uses: actions/upload-artifact@master
       with:
@@ -132,10 +142,10 @@ jobs:
     - run: dir
       working-directory: ../
 
-    # - uses: actions/aws/cli@master
-    #   id: cli_id
-    #   with:
-    #     args: --output text --color off help
+    - uses: actions/aws/cli@master
+      id: cli_id
+      with:
+        args: --output text --color off help
     
     
 
