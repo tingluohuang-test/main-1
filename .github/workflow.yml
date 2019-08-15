@@ -68,6 +68,7 @@ jobs:
     - run: |
         node --version
         npm --version
+      if: failure()
     
     - uses: 'actions/container-template@master'
       with:
@@ -80,7 +81,7 @@ jobs:
     - run: |
         node --version
         npm --version
-      if: failure()
+      
 
     - uses: 'docker://ubuntu:16.04'
       if: eq(github.ref, 'refs/heads/master')
