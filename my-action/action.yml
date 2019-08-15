@@ -7,4 +7,4 @@ inputs:
 runs:
   using: "docker"
   image: "docker://ubuntu:16.04"
-  args: ["--beep", "${{ inputs.beep }}"]
+  args: ["beep", "-r ${{ inputs.beep }}"]
