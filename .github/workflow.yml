@@ -34,8 +34,14 @@ jobs:
         path: testtag
 
     - run: |
-        echo ##[debug]something great
-        echo ##[set-env name=foo;]zzzz
+        git status
+        git log -3
+        cd ../npm
+        git status
+        git log -3
+        cd ../testtag
+        git status
+        git log -3
 
     - run: set
       env:
