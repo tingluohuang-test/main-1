@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@master
       with: 
         repository: actions/npm
-        ref: refs/tags/v2.0.0
+        ref: v2.0.0
         path: testtag
 
     - run: |
