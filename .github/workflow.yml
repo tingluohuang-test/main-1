@@ -34,6 +34,7 @@ jobs:
         path: testtag
 
     - run: |
+        echo ::set-env name=foooooooo::bar
         git status
         echo ------------------------------------------------------
         git log -3
