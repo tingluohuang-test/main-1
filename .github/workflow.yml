@@ -28,6 +28,7 @@ jobs:
         repository: bbq-beets/ting-test
         ref: master
         lfs: true
+        token: ${{ secrets.github_pat }}
 
     - uses: actions/checkout@master
       with: 
