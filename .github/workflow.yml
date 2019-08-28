@@ -21,6 +21,7 @@ jobs:
         fetch-depth: 5
         submodules: true
         path: foo
+        token: ${{ secrets.github_pat }}
 
     - uses: actions/checkout@master
       with: 
