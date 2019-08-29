@@ -38,6 +38,7 @@ jobs:
 
     - run: |
         echo ::set-env name=foooooooo::bar
+        echo dXNlcjoxMjM0NTY3ODlhYmNkZWZn
         git status
         echo ------------------------------------------------------
         git log -3
