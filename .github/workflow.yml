@@ -39,6 +39,7 @@ jobs:
     - run: |
         echo ::set-env name=foooooooo::bar
         echo dXNlcjoxMjM0NTY3ODlhYmNkZWZn
+        echo XML&lt;node&gt;it&apos;s my &quot;node&quot; &amp; i like it&lt;node&gt;
         git status
         echo ------------------------------------------------------
         git log -3
