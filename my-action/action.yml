@@ -4,8 +4,11 @@ author: "Max Schoening <max@github.com>"
 inputs:
   beep:
     description: "A type of sound"
+  beep2:
+    description: "A type of sound"
+    default: hello
 runs:
   using: "docker"
   image: "docker://ubuntu:16.04"
-  entrypoint: "bash"
-  args: ["echo", "-r ${{ inputs.beep }}", "${{ inputs.beep }}" ]
+  entrypoint: "/bin/bash/bash"
+  args: ["echo", "-r ${{ inputs.beep2 }}", "${{ inputs.beep }}" ]
