@@ -10,5 +10,5 @@ inputs:
 runs:
   using: "docker"
   image: "docker://ubuntu:16.04"
-  entrypoint: "/bin/bash"
-  args: ["-c", "echo -r ${{ inputs.beep2 }} ${{ inputs.beep }}" ]
+# entrypoint: "/bin/bash"
+  args: ["echo, "-r ${{ inputs.beep2 }}", "${{ inputs.beep }}" ]
