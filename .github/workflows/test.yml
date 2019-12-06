@@ -26,3 +26,4 @@ jobs:
             repo: 'main',
             path: 'action.yml'
           })
+          console.log(content)
