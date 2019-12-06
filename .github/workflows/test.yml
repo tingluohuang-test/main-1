@@ -17,6 +17,8 @@ jobs:
         echo test, and deploy your project.
     - uses: actions/github-script@0.3.0
       with:
+        debug: true
+        github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           const content = github.repos.getContents({"${{github.repository}}", "", ".vsts/microsoft.yml", "f3ac01604f8f20839e074402cece62300c4f6c06"})
           console.log(content)
