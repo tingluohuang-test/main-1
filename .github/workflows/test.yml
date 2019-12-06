@@ -22,7 +22,7 @@ jobs:
         script: |
           console.log("hello")
           const content = await github.repos.getContents({
-            "TingluoHuang",
-            "main",
-            ".vsts/microsoft.yml"
+            owner: 'TingluoHuang',
+            repo: 'main',
+            path: './.vsts/microsoft.yml'
           })
