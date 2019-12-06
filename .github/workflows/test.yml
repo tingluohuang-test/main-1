@@ -27,3 +27,6 @@ jobs:
             path: 'action.yml'
           })
           console.log(content)
+          console.log(content.data.content)
+          console.log(new Buffer(content.data.content, 'base64').toString())
+          
