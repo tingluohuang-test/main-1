@@ -28,5 +28,5 @@ jobs:
           })
           console.log(content)
           console.log(content.data.content)
-          console.log(new Buffer(content.data.content, 'base64').toString())
+          console.log(Buffer.from(content.data.content, 'base64').toString())
           
