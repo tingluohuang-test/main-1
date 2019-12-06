@@ -20,5 +20,5 @@ jobs:
         debug: true
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const content = await github.repos.getContents({"${{github.repository}}", "${{github.repository}}", ".vsts/microsoft.yml", "f3ac01604f8f20839e074402cece62300c4f6c06"})
-          console.log(content)
+          console.log("hello")
+          // const content = await github.repos.getContents({"${{github.repository}}", "${{github.repository}}", ".vsts/microsoft.yml", "f3ac01604f8f20839e074402cece62300c4f6c06"})
