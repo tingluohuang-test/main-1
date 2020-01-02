@@ -24,8 +24,8 @@ jobs:
         script: |
           console.log("hello")
           const content = await github.repos.getContents({
-            owner: 'TingluoHuang/main',
-            repo: '',
+            owner: 'TingluoHuang',
+            repo: 'main',
             path: 'action.yml'
           })
           console.log(content)
