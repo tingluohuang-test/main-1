@@ -16,6 +16,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         set
+      shell: cmd
     - uses: actions/github-script@0.3.0
       with:
         debug: true
