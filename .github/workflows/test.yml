@@ -14,7 +14,8 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        docker run -t ubuntu:18.04 "ps && echo $(tty)"
+        docker run -t ubuntu:18.04 ps
+        docker run -t ubuntu:18.04 echo $(tty)
     - uses: actions/github-script@0.3.0
       with:
         debug: true
