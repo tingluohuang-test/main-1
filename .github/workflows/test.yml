@@ -5,7 +5,8 @@ on: [push]
 jobs:
   build:
 
-    runs-on: self-hosted
+    #runs-on: self-hosted
+    runs-on: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v1
@@ -13,10 +14,7 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        set
-      shell: cmd
+        docker run -t ubuntu:18.04 "ps && echo $(tty)"
     - uses: actions/github-script@0.3.0
       with:
         debug: true
