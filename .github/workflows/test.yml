@@ -6,16 +6,24 @@ jobs:
   build:
 
     #runs-on: self-hosted
-    runs-on: [ubuntu-latest]
+    #runs-on: [ubuntu-latest]
+    runs-on: [windows-latest]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run a one-line script
       run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        docker run -t ubuntu:18.04 ps
-        docker run -t ubuntu:18.04 echo $(tty)
+    #- name: Run a multi-line script
+    #  run: |
+    #    docker run -t ubuntu:18.04 ps
+    #    docker run -t ubuntu:18.04 echo $(tty)
+    - run: |
+        find --help
+        where find
+    - run: |
+        find --help
+        where find
+      shell: cmd
     - uses: actions/github-script@0.3.0
       with:
         debug: true
