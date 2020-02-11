@@ -5,8 +5,8 @@ on: [push, pull_request]
 jobs:
   build:
 
-    runs-on: self-hosted
-    #runs-on: [ubuntu-latest]
+    #runs-on: self-hosted
+    runs-on: [ubuntu-latest]
     #runs-on: [windows-latest]
 
     steps:
@@ -18,8 +18,7 @@ jobs:
     #    docker run -t ubuntu:18.04 ps
     #    docker run -t ubuntu:18.04 echo $(tty)
     - run: |
-        find --help
-        where find
+        ascii ${{ secrets.GITHUB_TOKEN }}
     - run: |
         find --help
         where find
