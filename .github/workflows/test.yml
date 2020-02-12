@@ -18,6 +18,7 @@ jobs:
     #    docker run -t ubuntu:18.04 ps
     #    docker run -t ubuntu:18.04 echo $(tty)
     - run: |
+        echo ${{secret.TestJson}}
         echo  ${{ secrets.GITHUB_TOKEN }} | od -t x1
     - run: |
         find --help
