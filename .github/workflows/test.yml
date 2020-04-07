@@ -9,8 +9,8 @@ jobs:
         image: yandex/clickhouse-server
         ports:
           - 9000:9000
-        #volumes:
-        #  - /:/var/lib/clickhouse
+        volumes:
+          - /:/var/lib/clickhouse
     container:
       image: alpine:3.11.5
     #runs-on: self-hosted
