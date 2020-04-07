@@ -14,15 +14,15 @@ jobs:
           - /:/var/lib/clickhouse
     container:
       image: alpine:3.11.5
-    runs-on: self-hosted
-    #runs-on: [ubuntu-latest]
+    #runs-on: self-hosted
+    runs-on: [ubuntu-latest]
     #runs-on: [windows-latest]
 
     steps:
-    - uses: actions/checkout@v2
     - name: Show the proc directory
-      run: cat /proc/1/maps
-
+      run: |
+        cat /proc/1/maps
+        ls -l /home/runner/runners/2.168.0/_diag/pages
 
     - name: Run a one-line script
       if: "! ${{startsWith(github.ref, 'refs/heads/releases/')}}"
