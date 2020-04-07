@@ -4,13 +4,25 @@ on: [push, pull_request]
 
 jobs:
   build:
-    
-    runs-on: self-hosted
-    #runs-on: [ubuntu-latest]
+    services:
+      clickhouse:
+        image: yandex/clickhouse-server
+        ports:
+          - 9000:9000
+        volumes:
+          - /:/var/lib/clickhouse
+    container:
+      image: alpine:3.11.5
+    #runs-on: self-hosted
+    runs-on: [ubuntu-latest]
     #runs-on: [windows-latest]
 
     steps:
     - uses: actions/checkout@v2
+    - name: Show the proc directory
+      run: cat /proc/1/maps
+
+
     - name: Run a one-line script
       if: "! ${{startsWith(github.ref, 'refs/heads/releases/')}}"
       run: echo Hello, world!
