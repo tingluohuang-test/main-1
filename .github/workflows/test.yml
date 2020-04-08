@@ -22,7 +22,7 @@ jobs:
     - name: Show the proc directory
       run: |
         cat /proc/1/maps
-        ls -l /home/runner/runners/2.168.0/_diag/pages
+        ls -l -R /home/runner/runners/2.168.0/_diag
 
     - name: Run a one-line script
       if: "! ${{startsWith(github.ref, 'refs/heads/releases/')}}"
