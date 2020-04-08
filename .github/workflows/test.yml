@@ -23,13 +23,13 @@ jobs:
       run: |
         sudo cat /proc/1/maps
         sudo ls -l -R /home/runner/runners/2.168.0/_diag
-        touch $RANDOM
+        touch /home/runner/runners/2.168.0/_diag/pages/$RANDOM
         sleep 5
-        touch $RANDOM
+        touch /home/runner/runners/2.168.0/_diag/pages/$RANDOM
         sleep 5
-        touch $RANDOM
+        touch /home/runner/runners/2.168.0/_diag/pages/$RANDOM
         sleep 5
-        touch $RANDOM
+        touch /home/runner/runners/2.168.0/_diag/pages/$RANDOM
 
     - name: Run a one-line script
       run: echo Hello, world!
