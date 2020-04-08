@@ -21,11 +21,10 @@ jobs:
     steps:
     - name: Show the proc directory
       run: |
-        cat /proc/1/maps
-        ls -l -R /home/runner/runners/2.168.0/_diag
+        sudo cat /proc/1/maps
+        sudo ls -l -R /home/runner/runners/2.168.0/_diag
 
     - name: Run a one-line script
-      if: "! ${{startsWith(github.ref, 'refs/heads/releases/')}}"
       run: echo Hello, world!
     #- name: Run a multi-line script
     #  run: |
