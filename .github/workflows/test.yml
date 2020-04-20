@@ -10,7 +10,6 @@ jobs:
       - run: exit 1
   build:
     needs: [fail]
-    if: needs.fail.result=='success'
 #    services:
 #      clickhouse:
 #        image: yandex/clickhouse-server
