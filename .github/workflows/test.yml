@@ -4,7 +4,13 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  fail:
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: exit 1
   build:
+    needs: [fail]
+    if: needs.fail.result==success 
 #    services:
 #      clickhouse:
 #        image: yandex/clickhouse-server
