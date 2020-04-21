@@ -4,12 +4,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  fail:
-    runs-on: [ubuntu-latest]
-    steps:
-      - run: exit 1
   build:
-    needs: [fail]
 #    services:
 #      clickhouse:
 #        image: yandex/clickhouse-server
@@ -29,6 +24,10 @@ jobs:
       run: |
         printenv|sort
         echo 1
+        echo ${{secrets.QOUTES}}
+        echo abcdef
+        echo bcdefg
+        echo abcdefg
     - name: Run a one-line script
       run: echo Hello, world!
     #- name: Run a multi-line script
