@@ -47,9 +47,9 @@ jobs:
           localectl status
           echo "Printing decimal"
           printf "%'.3f\n" 123123.123
-          printf "%'.3f\n" 123123,123
+          LC_NUMERIC=pt_BR.UTF-8 printf "%'.3f\n" 123123,123
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: printf "%'.3f\n" 123123,123
     #- name: Run a multi-line script
     #  run: |
     #    docker run -t ubuntu:18.04 ps
