@@ -46,6 +46,7 @@ jobs:
           echo "LocaleCtl"
           localectl status
           echo "Printing decimal"
+          printf "%'.3f\n" 123123.123
           printf "%'.3f\n" 123123,123
     - name: Run a one-line script
       run: echo Hello, world!
