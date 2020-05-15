@@ -5,6 +5,9 @@ on: [push, pull_request]
 
 jobs:
   build:
+    strategy:
+      matrix:
+        OS: [ubuntu-latest, windows-latest, macos-latest]
 #    services:
 #      clickhouse:
 #        image: yandex/clickhouse-server
@@ -15,8 +18,9 @@ jobs:
     #container:
     #  image: alpine:3.11.5
     #runs-on: self-hosted
-    runs-on: [ubuntu-latest]
+    #runs-on: [ubuntu-latest]
     #runs-on: [windows-latest]
+    runs-on: ${{matrix.OS}}
     env:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
@@ -29,99 +33,6 @@ jobs:
         
 
     # Runs a set of commands using the runners shell
-    - run: |
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
-        sleep 600
-        curl -v https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ github.token }}' \
-        --header 'content-type: application/json'
                            
     - name: Debugging with tmate
       uses: mxschmitt/action-tmate@v2
