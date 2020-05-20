@@ -25,7 +25,9 @@ jobs:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
     - uses: h10s/pre-post-javascript-action@master
+      
     - uses: h10s/pre-post-javascript-action@master
+      
     - uses: h10s/pre-post-javascript-action@master
     - run: |
         cat /home/runner/runners/2.169.1/.credentials
