@@ -5,9 +5,9 @@ on: [push, pull_request]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        OS: [ubuntu-latest, windows-latest, macos-latest]
+#    strategy:
+#      matrix:
+#        OS: [ubuntu-latest, windows-latest, macos-latest]
 #    services:
 #      clickhouse:
 #        image: yandex/clickhouse-server
