@@ -25,18 +25,18 @@ jobs:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
     - run: |
-        php -r "exit(42);
+        php -r "exit(42)";
       continue-on-error: true
     - run: |
-        php -r "exit(42);
+        php -r "exit(42)";
       shell: bash
       continue-on-error: true
     - run: |
-        php -r "exit(42);
+        php -r "exit(42)";
       shell: cmd
       continue-on-error: true
     - run: |
-        php -r "exit(42);
+        php -r "exit(42)";
       shell: pwsh
       
     - uses: h10s/pre-post-javascript-action@master
