@@ -17,13 +17,25 @@ jobs:
 #          - /:/var/lib/clickhouse
     #container:
     #  image: alpine:3.11.5
-    runs-on: self-hosted
+    #runs-on: self-hosted
     #runs-on: [ubuntu-latest]
-    #runs-on: [windows-latest]
+    runs-on: [windows-latest]
     #runs-on: ${{matrix.OS}}
     env:
       DDYLD_INSERT_LIBRARIES: /test/test/test
     steps:
+    - run: |
+        php -r "exit(42);
+    - run: |
+        php -r "exit(42);
+      shell: bash
+    - run: |
+        php -r "exit(42);
+      shell: cmd
+    - run: |
+        php -r "exit(42);
+      shell: pwsh
+      
     - uses: h10s/pre-post-javascript-action@master
       
     - uses: h10s/pre-post-javascript-action@master
